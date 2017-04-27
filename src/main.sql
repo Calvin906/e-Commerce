@@ -3,60 +3,71 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
+/* 
+ * Sql script to create and populate tables
+ * You need to run this script with an authorized user.
+ * to run this file @ mysql client :mysql> source path-to\E-Commerce.sql
+ * data files for load on desktop
+ */
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `mydb` ;
+SHOW DATABASES;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cs157b
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+DROP SCHEMA IF EXISTS `cs157b` ;
+SHOW DATABASES;
+-- -----------------------------------------------------
+-- Schema cs157b
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `cs157b` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
-USE `mydb` ;
+USE `cs157b` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`User`
+-- Table `cs157b`.`User`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`User` ;
+DROP TABLE IF EXISTS `cs157b`.`User` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
-  `UserID` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `cs157b`.`User` (
   `Name` VARCHAR(45) NOT NULL,
   `Address` VARCHAR(45) NULL,
   `Password` VARCHAR(45) NOT NULL,
+  `UserID` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`UserID`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Suppliers`
+-- Table `cs157b`.`Suppliers`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Suppliers` ;
+DROP TABLE IF EXISTS `cs157b`.`Suppliers` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `mydb`.`Suppliers` (
-  `SupplierID` INT NOT NULL AUTO_INCREMENT,
-  `Product` REAL NULL,
+CREATE TABLE IF NOT EXISTS `cs157b`.`Suppliers` (
+  `Product` VARCHAR(45) NULL,
   `Price` REAL NULL,
-  PRIMARY KEY (`SupplierID`))
+  `Location` VARCHAR(45),
+  `Quantity` REAL NULL,
+  `SupplierID` INT NOT NULL AUTO_INCREMENT,  
+   PRIMARY KEY (`SupplierID`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+
 -- -----------------------------------------------------
--- Table `mydb`.`Order`
+-- Table `cs157b`.`Order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Order` ;
+DROP TABLE IF EXISTS `cs157b`.`Order` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `mydb`.`Order` (
+CREATE TABLE IF NOT EXISTS `cs157b`.`Order` (
   `OrderID` INT NOT NULL AUTO_INCREMENT,
   `UserID` INT NULL,
   `Product` VARCHAR(45) NULL,
@@ -69,17 +80,27 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Order` (
   INDEX `SupplierID_idx` (`SupplierID` ASC),
   CONSTRAINT `UserID`
     FOREIGN KEY (`UserID`)
-    REFERENCES `mydb`.`User` (`UserID`)
+    REFERENCES `cs157b`.`User` (`UserID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `SupplierID`
     FOREIGN KEY (`SupplierID`)
-    REFERENCES `mydb`.`Suppliers` (`SupplierID`)
+    REFERENCES `cs157b`.`Suppliers` (`SupplierID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
+
+
+
+show tables;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\BikramSingh\\Desktop\\users_data.txt' INTO TABLE user FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n' ;
+SELECT * FROM User;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\BikramSingh\\Desktop\\suppliers_data.txt' INTO TABLE Suppliers FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n' ;
+SELECT * FROM Suppliers;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
