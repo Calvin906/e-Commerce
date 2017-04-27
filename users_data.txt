@@ -1,0 +1,20 @@
+bob smith,san jose-CA,test1234
+david taylor,sunnyvale-CA,test1234
+sandra andrae,santa Clara-CA        ,test1234
+andrew benson,Los Gatos-CA,test1234
+babb benton,Tulare-CA,test1234
+daisy berman,Fremont-CA,test1234
+anna bair,Hayward-CA,test1234
+bruce lee,Union City-CA,test1234
+adam lebron,San Francisco-CA,test1234
+jess liu,Berkeley-CA,test1234
+gabriel conte,Gilroy-CA,test1234
+lo loftin,Los Altos-CA,test1234
+james logan,Santa Cruz-CA,test1234
+bob mathias,Sacramento-CA,test1234
+james lamar,Petaluma-CA,test1234
+john labbe,Woodland-CA,test1234
+Francisco Li,Los Angeles-CA,test1234
+Nick Nix,Santa Barbara-CA,test1234
+Cay Newton,Ventura-CA,test1234
+Nava Neal,Bakersfield-CA,test1234

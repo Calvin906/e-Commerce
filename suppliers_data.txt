@@ -1,0 +1,20 @@
+iPhone,750,San Jose-CA,400
+Macbook,1700,Santa Clara-CA,150
+Tablet,600,Sunnyvale-CA,300
+iPad,1800,San Francisco-CA,500
+Apple watch,780,San Jose-CA,5700
+Watch,200,San Mateo-CA,5000
+Charger,50,Sunnyvale-CA,6000
+Speaker,500,Hayward-CA,550
+Earphones, 30,San Jose-CA,6000
+Headphones,300,Santa Clara-CA,400
+Bluetooth,50,San Francisco-CA,50
+Cable,10,Santa Clara-CA,330
+USB Cable,5,Gilroy-CA,400
+AUX,10,Fresno-CA,800
+Printer,400,San Jose-CA,50
+Samsung TV,800,Santa Clara-CA,40,
+Loudspeaker,300,Fremont-CA,30
+iMac,2100,San Jose-CA,50
+Apple TV,150,Sunnyvale-CA,60
+Chromecast,200,Santa Clara-CA,70
