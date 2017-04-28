@@ -140,6 +140,10 @@ select 'What is the total dollar count for all the orders' AS '';
 select sum(totalprice) from orders;
 
 
+/* What is the smallest order? (Min*/
+select 'What is the smallest order?' AS '';
+ select * from orders where totalprice=(select min(totalprice) from orders);
+
 
 
 
