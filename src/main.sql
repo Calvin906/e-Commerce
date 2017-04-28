@@ -141,6 +141,15 @@ select sum(totalprice) from orders;
 
 
 
+/* What is the smallest order? (Min*/
+select 'What is the smallest order?' AS '';
+select * from orders where totalprice=(select min(totalprice) from orders);
+
+
+/* What is the average price of the orders? */
+select 'What is the average price of the orders' AS '';
+select AVG(totalprice) from orders;
+
 
 
 
