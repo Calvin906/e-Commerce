@@ -108,17 +108,22 @@ SELECT * FROM ORDERS;
 
 /* find all the suppliers in San Jose */
 select 'Find all the suppliers in San Jose' AS '';
-SELECT SupplierID FROM Suppliers WHERE Location Like 'San Jose%';
+SELECT SupplierID 
+FROM Suppliers 
+WHERE Location Like 'San Jose%';
 
 /* How many registered users the website has? */
 select 'Find all registered users the website has' AS '';
-SELECT COUNT(userID) FROM user;
+SELECT COUNT(userID) 
+FROM user;
 
  
 
 /* How many orders has quanity more than 2? */
 select 'Find all the orders with quanity more than 2' AS '';
-SELECT COUNT(orderId) FROM orders where Quantity > 2;
+SELECT COUNT(orderId) 
+FROM orders 
+where Quantity > 2;
 
 /* Find all the orders shipped from San Jose */
 select 'Find all the orders shipped from San Jose ' AS '';
@@ -155,7 +160,9 @@ select 'What is the average price of the orders' AS '';
 select AVG(totalprice) from orders;
 
 
-
+/* How many orders has iphone? */
+select 'How many orders were shipped to x address?' AS '';
+select count(*) from orders WHERE Product LIKE 'iphone%';
 
 
 
