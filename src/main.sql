@@ -135,6 +135,10 @@ select 'Find all the buyers and their suppliers' AS '';
 select u.name from (select distinct userID from orders where totalprice > 200) a, user u  Where a.userID=u.userid;
 
 
+/* What is the total dollar count for all the orders? */
+select 'What is the total dollar count for all the orders' AS '';
+select sum(totalprice) from orders;
+
 
 
 
