@@ -130,7 +130,9 @@ select 'Find all the buyers and their suppliers' AS '';
 select u.name, a.supplierID from (select distinct userID, supplierID from orders) a, user u  Where a.userID=u.userid;
 
 
-
+/* Which users had orders that cost more than 200 dollars? */
+select 'Find all the buyers and their suppliers' AS '';
+select u.name from (select distinct userID from orders where totalprice > 200) a, user u  Where a.userID=u.userid;
 
 
 
