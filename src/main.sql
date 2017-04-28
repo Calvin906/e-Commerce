@@ -64,17 +64,17 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 -- Table `cs157b`.`Order`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `cs157b`.`Order` ;
+DROP TABLE IF EXISTS `cs157b`.`Orders` ;
 
 SHOW WARNINGS;
-CREATE TABLE IF NOT EXISTS `cs157b`.`Order` (
-  `OrderID` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `cs157b`.`Orders` (
   `UserID` INT NULL,
   `Product` VARCHAR(45) NULL,
   `Quantity` REAL NULL,
   `UnitPrice` REAL NULL,
   `TotalPrice` REAL NULL,
   `SupplierID` INT NULL,
+  `OrderID` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`OrderID`),
   INDEX `CustomerID_idx` (`UserID` ASC),
   INDEX `SupplierID_idx` (`SupplierID` ASC),
@@ -101,6 +101,46 @@ SELECT * FROM User;
 
 LOAD DATA LOCAL INFILE 'C:\\Users\\BikramSingh\\Desktop\\suppliers_data.txt' INTO TABLE Suppliers FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n' ;
 SELECT * FROM Suppliers;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\BikramSingh\\Desktop\\orders_data.txt' INTO TABLE Orders FIELDS TERMINATED BY ',' LINES TERMINATED BY '\r\n' ;
+SELECT * FROM ORDERS;
+
+
+/* find all the suppliers in San Jose */
+select 'Find all the suppliers in San Jose' AS '';
+SELECT SupplierID FROM Suppliers WHERE Location Like 'San Jose%';
+
+/* How many registered users the website has? */
+select 'Find all registered users the website has' AS '';
+SELECT COUNT(userID) FROM user;
+
+ 
+
+/* How many orders has quanity more than 2? */
+select 'Find all the orders with quanity more than 2' AS '';
+SELECT COUNT(orderId) FROM orders where Quantity > 2;
+
+/* Find all the orders shipped from San Jose */
+select 'Find all the orders shipped from San Jose ' AS '';
+SELECT * FROM orders, suppliers where orders.supplierID = suppliers.supplierID AND Suppliers.Location LIKE 'san jose%';
+
+
+/* Find all the buyers and their suppliers */
+select 'Find all the buyers and their suppliers' AS '';
+select u.name, a.supplierID from (select distinct userID, supplierID from orders) a, user u  Where a.userID=u.userid;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
